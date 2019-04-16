@@ -205,6 +205,7 @@ module ActionController #:nodoc:
 
       if format = collector.negotiate_format(request)
         _process_format(format)
+        _set_rendered_content_type format
         options = resources.size == 1 ? {} : resources.extract_options!
         options = options.clone
         options[:default_response] = collector.response
